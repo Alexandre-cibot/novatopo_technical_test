@@ -19,7 +19,13 @@ async function getInstructions() {
 
   mowers.forEach((mower, i) => {
     console.log('Lancement de mower', i)
-    mowersLaunched.push(start(mower));
+    if (i === 1) {
+      // deuxieme mower
+      mowersLaunched.push(start(mower, true)); // with 4s late.  
+    } else {
+      mowersLaunched.push(start(mower));
+    }
+    
   });
 
   mowersLaunched.forEach(promise => {
@@ -31,7 +37,7 @@ async function getInstructions() {
 
 
 
-function start(mowerInstance){
+function start(mowerInstance, longer = false){
   // on lance la boucle des orders données.
   return new Promise((resolve, reject) => {
     mowerInstance.orders.forEach(order => {
@@ -43,6 +49,12 @@ function start(mowerInstance){
       mowerInstance.updatePosition();
       }
     })
-    resolve(mowerInstance.getInformations());
+    if (!longer) {
+      resolve(mowerInstance.getInformations());
+    } else {
+      setTimeout(() => {
+        resolve(mowerInstance.getInformations());
+      }, 4000)
+    }
   })
 }
