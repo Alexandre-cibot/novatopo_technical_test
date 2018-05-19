@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  table {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    table-layout: fixed;
+  }
+  td {
+    position: relative;
+    border: 1px solid;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .big {
+    font-size: 30px;
+  }
+
+  .north {
+    position: absolute;
+    top: -84px;
+    left: 100%;
+    transform: translateX(-25%);
+  }
+
+   .west {
+    position: absolute;
+    left: -84px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .est {
+    position: absolute;
+    right: -84px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .south {
+    position: absolute;
+    bottom: -84px;
+    right: 100%;
+    transform: translateX(25%);
+  }
+
+</style>
+<body>
+  <table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>
+          <span class="north big">N</span>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+          <span class="west big">W</span>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <span class="est big">E</span>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <span class="south big">S</span>
+        </td>
+        <td></td>
+        <td></td>
+    </tr> 
+  </table>
+  <script>
+
+  const tds = document.querySelectorAll('td');
+
+  tds.forEach(td => {
+    td.addEventListener('mouseenter', (e) => {
+      e.target.style.backgroundColor = "red";
+    })
+    td.addEventListener('mouseleave', (e) => {
+      e.target.style.backgroundColor = "";
+    })
+    td.addEventListener('click', (e) => {
+      e.target.style.border = "1px solid red"
+      e.target.style.transform = "scale(0.5)"
+    })
+}) 
+  </script>
+</body>
+</html>
