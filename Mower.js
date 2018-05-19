@@ -1,5 +1,5 @@
 
-const { DIRECTIONS, ORIENTATIONS } = require('./Helpers.js');
+const { DIRECTIONS, ORIENTATIONS } = require('./helpers.js');
 
 class Mower {
   constructor (instruction) {
@@ -9,6 +9,10 @@ class Mower {
     this.orders = instruction.orders;
   }
 
+  /**
+   * Update the orientation
+   * @param {String} direction - Mower instanciation.
+  */
   updateOrientation(direction) {
     let result;
     switch(this.orientation) {
@@ -45,15 +49,21 @@ class Mower {
     this.orientation = result;
   }
 
-  updatePosition() {
+  /**
+   * Update the position
+   * @param {Int} xMax - Maxium x possible
+   * @param {Int} yMax - Maxium y possible
+  */
+  updatePosition(xMax, yMax) {
+    // console.log('xmax, ymax, ', xMax, yMax)
     switch(this.orientation) {
       case "N": 
-        if (this.y < 5) {
+        if (this.y < yMax) {
           this.y++;
         }
         break;
       case "E":
-        if (this.x < 5) {
+        if (this.x < xMax) {
           this.x++;
         }
         break;
@@ -70,6 +80,11 @@ class Mower {
     }
   }
 
+  /**
+   * Concatenation of position and orientation.
+   * In order to be displayed. 
+   * @returns {String}
+  */
   getInformations() {
     return `${this.x} ${this.y} ${this.orientation}`;
   }
