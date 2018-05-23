@@ -2,7 +2,10 @@ const fse = require('fs-extra');
 
 const Helpers = {
   ORIENTATIONS: ["N", "E", "W", "S"],
-  DIRECTIONS: ["L", "R"],
+  DIRECTIONS: {
+    left: "L",
+    right: "R"
+  },
 
   /**
    * Retrieve Instruction in the instruction's file
@@ -20,7 +23,7 @@ const Helpers = {
    * @returns {Boolean}
    */
   isADirection(letter) {
-    return Helpers.DIRECTIONS.includes(letter);
+    return Object.values(Helpers.DIRECTIONS).includes(letter);
   },
 
   /**

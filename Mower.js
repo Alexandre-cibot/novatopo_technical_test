@@ -14,39 +14,23 @@ class Mower {
    * @param {String} direction - Mower instanciation.
   */
   updateOrientation(direction) {
-    let result;
+    let orientationUpdated;
     switch(this.orientation) {
       case "N":
-          if (direction === "L") {
-            result = "W";
-          } else {
-            result = "E";
-          }
+        orientationUpdated = direction === DIRECTIONS.left ? "W" : "E"
         break;
       case "E":
-        if (direction === "L") {
-          result = "N";
-        } else {
-          result = "S";
-        }
+        orientationUpdated = direction === DIRECTIONS.left ? "N" : "S"
         break;
       case "W":
-        if (direction === "L") {
-          result = "S";
-        } else {
-          result = "N";
-        }
+        orientationUpdated = direction === DIRECTIONS.left ? "S" : "N"
         break;
       case "S":
-        if (direction === "L") {
-          result = "E";
-        } else {
-          result = "W";
-        }
+        orientationUpdated = direction === DIRECTIONS.left ? "E" : "W"
         break;
     }
     
-    this.orientation = result;
+    this.orientation = orientationUpdated;
   }
 
   /**

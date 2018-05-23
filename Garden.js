@@ -1,4 +1,4 @@
-const {isADirection} = require('./helpers.js');
+const { isADirection } = require('./helpers.js');
 
 class Garden {
   constructor(maximumValues) {
