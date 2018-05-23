@@ -20,28 +20,28 @@ class Mower {
           if (direction === "L") {
             result = "W";
           } else {
-            result = "E"
+            result = "E";
           }
         break;
       case "E":
         if (direction === "L") {
           result = "N";
         } else {
-          result = "S"
+          result = "S";
         }
         break;
       case "W":
         if (direction === "L") {
           result = "S";
         } else {
-          result = "N"
+          result = "N";
         }
         break;
       case "S":
         if (direction === "L") {
           result = "E";
         } else {
-          result = "W"
+          result = "W";
         }
         break;
     }

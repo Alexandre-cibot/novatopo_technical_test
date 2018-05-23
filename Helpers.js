@@ -20,7 +20,7 @@ const Helpers = {
    * @returns {Boolean}
    */
   isADirection(letter) {
-    return Helpers.DIRECTIONS.includes(letter)
+    return Helpers.DIRECTIONS.includes(letter);
   },
 
   /**

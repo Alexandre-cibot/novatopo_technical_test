@@ -13,9 +13,9 @@ class Garden {
    */
   runMowers(mowers){
     mowers.forEach((mower, i) => {
-      console.log('Lancement de mower', i)
-      const newMowerLaunched = this.runSingleMower(mower)
-      newMowerLaunched.then(console.log)
+      console.log('Lancement de mower', i);
+      const newMowerLaunched = this.runSingleMower(mower);
+      newMowerLaunched.then(console.log);
     });
   }
 
