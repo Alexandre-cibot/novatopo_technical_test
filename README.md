@@ -1,3 +1,8 @@
+
+## Run the Script
+`node index.js`
+
+## Story
 Homeloop's Technical Test
 
 MowItNow company decided to develop an automatic weed mower for rectangular surfaces.
